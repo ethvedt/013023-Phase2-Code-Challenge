@@ -1,6 +1,10 @@
 import React from "react";
 
-function Transaction({ transaction }) {
+function Transaction({ transaction, onDelete }) {
+
+  function handleClick(event) {
+    onDelete(transaction);
+  };
 
   return (
     <tr>
@@ -8,6 +12,9 @@ function Transaction({ transaction }) {
       <td className="description">{transaction.description}</td>
       <td className="category">{transaction.category}</td>
       <td className="amount">{transaction.amount}</td>
+      <td className="delete">
+        <button onClick={handleClick}>Delete</button>
+      </td>
     </tr>
   );
 }
